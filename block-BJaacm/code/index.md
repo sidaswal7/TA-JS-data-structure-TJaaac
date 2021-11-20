@@ -18,18 +18,18 @@ let newUser = user;
 
 2. Answer the following with reason:
 
-- `user == newUser;` // output and reason
-- `user === newUser;`
-- `user.name === newUser.name;`
-- `user.name == newUser.name;`
-- `user.sibling == newUser.sibling;`
-- `user.sibling === newUser.sibling;`
-- `user.sibling == allBrothers;`
-- `user.sibling === allBrothers;`
-- `brothersCopy === allBrothers;`
-- `brothersCopy == allBrothers;`
-- `brothersCopy == user.sibling;`
-- `brothersCopy === user.sibling;`
-- `brothersCopy[0] === user.sibling[0];`
-- `brothersCopy[1] === user.sibling[1];`
-- `user.sibling[1] === newUser.sibling[1];`
+- `user == newUser;` // true - newUser contains same address as the user so values will be equal 
+- `user === newUser;`// True -same as above
+- `user.name === newUser.name;`//True - Both have same address and value
+- `user.name == newUser.name;`//True
+- `user.sibling == newUser.sibling;`//True
+- `user.sibling === newUser.sibling;`// True
+- `user.sibling == allBrothers;`//False - the address is different
+- `user.sibling === allBrothers;`// false
+- `brothersCopy === allBrothers;`//False - Both have different address
+- `brothersCopy == allBrothers;`// False
+- `brothersCopy == user.sibling;`// True - The address is same 
+- `brothersCopy === user.sibling;`// True
+- `brothersCopy[0] === user.sibling[0];`//True
+- `brothersCopy[1] === user.sibling[1];`//True
+- `user.sibling[1] === newUser.sibling[1];`//True
