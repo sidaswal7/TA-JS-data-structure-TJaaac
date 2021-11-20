@@ -3,11 +3,48 @@ let numbers = [6, 8, 10, 12, 43, 56, 98];
 let userIds = [1230, 234, 1278, 984, 763, 900];
 
 // 1. Add all the values of numbers and userIds array into the new newly created array named `collection`
+let sumA = 0;
+let sumB = 0;
+let collection = [];
+for(let i=0;i<numbers.length;i++){
+  sumA += numbers[i];
+}
+for(let j=0;j<userIds.length;j++){
+  sumB += userIds[j];
+}
+collection.push(sumA,sumB);
+
 
 // 2. Add all the even numbers from both arrays numbers and userIds into a newly created array named `evenCollection`
-
+let evenSumA = 0;
+let evenSumB = 0;
+let evenCollection = [];
+for(let a=0;a<numbers.length;a++){
+  if(numbers[a]%2 == 0){
+    evenSumA += numbers[a];
+  }
+}
+for(let b=0;b<userIds.length;b++){
+  if(userIds[b]%2 == 0){
+    evenSumB += userIds[b];
+  }
+}
+evenCollection.push(evenSumA,evenSumB);
 // 3. Add all the odd numbers from both arrays numbers and userIds into a newly created array named `oddCollection`
-
+let oddSumA = 0;
+let oddSumB = 0;
+let oddCollection = [];
+for(let c=0;c<numbers.length;c++){
+  if(numbers[c]%2 == 1){
+    oddSumA += numbers[c];
+  }
+}
+for(let d=0;d<userIds.length;d++){
+  if(userIds[d]%2 == 1){
+    oddSumB += userIds[d];
+  }
+}
+oddCollection.push(oddSumA,oddSumB);
 /*
   @param means parameter
 
@@ -24,16 +61,20 @@ let userIds = [1230, 234, 1278, 984, 763, 900];
     times(5); // ['test', 'test', 'test', 'test', 'test']
 */
 
-function times() {
-  // Your code
-}
+function times(num=0,str='test') {
+  let timeArr = [];
+    for(let x=1;x<=num;x++){
+      timeArr.push(str);
+    }
+    return timeArr;
+};
 
 // Uncomment the code below and test the output
 
-// console.log(times(5, 'c')); // ['c', 'c', 'c', 'c', 'c']
-// console.log(times(2, 'a')); // ['a', 'a']
-// console.log(times(0)); // []
-// console.log(times(5)); // ['test', 'test', 'test', 'test', 'test']
+console.log(times(5, 'c')); // ['c', 'c', 'c', 'c', 'c']
+console.log(times(2, 'a')); // ['a', 'a']
+console.log(times(0)); // []
+console.log(times(5)); // ['test', 'test', 'test', 'test', 'test']
 
 /*
 
@@ -48,9 +89,13 @@ function times() {
     revert(['Ryan', 'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
 
-function revert() {
-  // your code
-}
+function revert(arr) {
+  let newArr = [];
+  for(let k=0;k<arr.length;k++){
+    newArr[k] = arr[arr.length-i-1]; 
+  }
+  return newArr;
+};
 
 // Uncomment the code below and test the output
 // console.log(revert([1, 2, 3, 4])); // [4, 3, 2, 1]
