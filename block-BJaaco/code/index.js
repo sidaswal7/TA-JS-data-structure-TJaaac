@@ -91,8 +91,8 @@ console.log(times(5)); // ['test', 'test', 'test', 'test', 'test']
 
 function revert(arr) {
   let newArr = [];
-  for(let k=0;k<arr.length;k++){
-    newArr[k] = arr[arr.length-i-1]; 
+  for(let k=arr.length-1;k>=0;k--){
+    newArr.push(arr[k]); 
   }
   return newArr;
 };
@@ -114,15 +114,26 @@ function revert(arr) {
     clear(['a', undefined, 'd', 0,  'c', 'b']); // ['b', 'c', 'd', 'a']
     clear(['Ryan', null, 0,  'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
-
-function clear() {
-  // your code
+function isUnwanted(value){
+  return value == false ||
+  value == null ||
+  value == undefined ||
+  value == "" ||
+  value == 0
+}
+function clear(arr) {
+  let finalArr = [];
+  for(let value of arr){
+    if(!isUnwanted(value)){
+      finalArr.push(value)
+    }
+  } return finalArr;
 }
 
 // Uncomment the code below and test the output
-// console.log(clear([1, 2, 3, 4, '', 0, null, undefined])); // [4, 3, 2, 1]
-// console.log(clear(['a', undefined, 'd', 0, 'c', 'b'])); // ['b', 'c', 'd', 'a']
-// console.log(clear(['Ryan', null, 0, 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
+console.log(clear([1, 2, 3, 4, '', 0, null, undefined])); // [4, 3, 2, 1]
+console.log(clear(['a', undefined, 'd', 0, 'c', 'b'])); // ['b', 'c', 'd', 'a']
+console.log(clear(['Ryan', null, 0, 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
 
 /*
 
@@ -138,11 +149,15 @@ function clear() {
     arrayToObj(['Ryan', 'John']); // {0: 'Ryan', 1: 'John'}
 */
 
-function arrayToObj() {
-  // your code
-}
+function arrayToObj(arr) {
+  let finalObj = {};
+  for(let i=0;i<arr.length;i++){
+    finalObj[i] = arr[i]
+  }
+  return finalObj;
+} 
 
 // Uncomment the code below and test the output
-// console.log(arrayToObj([1, 2, 3, 4])); // {0: 1, 1: 2, 2: 3, 3: 4}
-// console.log(arrayToObj(['a', undefined, 'd'])); // {0: 'a', 1: undefined, 2: 'd'}
-// console.log(arrayToObj(['Ryan', 'John'])); // {0: 'Ryan', 1: 'John'}
+ console.log(arrayToObj([1, 2, 3, 4])); // {0: 1, 1: 2, 2: 3, 3: 4}
+ console.log(arrayToObj(['a', undefined, 'd'])); // {0: 'a', 1: undefined, 2: 'd'}
+ console.log(arrayToObj(['Ryan', 'John'])); // {0: 'Ryan', 1: 'John'}
